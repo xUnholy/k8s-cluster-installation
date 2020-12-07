@@ -1,5 +1,7 @@
 hostname: '{{ cloudflared_kube_api_server_dns }}'
 url: 'tcp://{{ keepalived_vip }}:8443'
+# uuid: 9bda8f1b-2345-4251-9cfe-bf885bcae12d
+# credentials-file: /etc/cloudflared/cert.pem
 lb-pool: api-pool
 logfile: /var/log/cloudflared.log
 loglevel: info
