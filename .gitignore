@@ -40,3 +40,6 @@ argo
 
 # IDE
 .idea/
+
+# Ignore Cloudflare certificates
+ansible/roles/cloudflared/files/*
