@@ -19,8 +19,8 @@ cluster_enable_admission_plugins: "NodeRestriction"
 # cluster_audit_log_maxbackup: 10
 # cluster_audit_log_maxsize: 100
 # cluster_pod_subnet: ""
-# cluster_etcd_heartbeat_interval: 200
-# cluster_etcd_election_timeout: 5000
+cluster_etcd_heartbeat_interval: 200
+cluster_etcd_election_timeout: 5000
 
 ####
 # Role - cni
