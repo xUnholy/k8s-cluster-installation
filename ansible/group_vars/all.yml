@@ -9,20 +9,21 @@ common_timezone: Australia/Melbourne
 # common_usb_ssd_device_id: ""
 # common_rpi_overclock: false
 # common_rpi_poe_hat: false
+common_log2ram_enabled: false
 common_log2ram_version: 1.6.0
 # common_log2ram_size: 128M
 
 ####
 # Role - kubernetes
 ####
-kubernetes_kubectl_version: 1.19.4-00
-kubernetes_kubelet_version: 1.19.4-00
-kubernetes_kubeadm_version: 1.19.4-00
+kubernetes_kubectl_version: 1.19.5-00
+kubernetes_kubelet_version: 1.19.5-00
+kubernetes_kubeadm_version: 1.19.5-00
 
 ####
 # Role - cri
 ####
-cri_plugin: containerd
+cri_plugin: docker
 
 ####
 # Role - storage
