@@ -46,22 +46,10 @@
     state: present
     sysctl_file: /etc/sysctl.d/99-kubernetes-cri.conf
 
-- name: 'debian : add an apt signing key for docker'
-  apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
-    state: present
-  when: ansible_os_family | lower == 'debian'
-
-- name: 'debian : add apt repository for stable version'
-  apt_repository:
-    repo: deb https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable
-    state: present
-  when: ansible_os_family | lower == 'debian'
-
 - name: 'debian : install containerd package'
   apt:
     name:
-      - containerd.io
+      - containerd
     state: present
     update_cache: yes
   when: ansible_os_family | lower == 'debian'
@@ -83,11 +71,16 @@
     group: root
     mode: '0755'
 
-# TODO: https://kubernetes.io/docs/setup/production-environment/container-runtimes/#containerd-systemd
+# # TODO: https://kubernetes.io/docs/setup/production-environment/container-runtimes/#containerd-systemd
+# - name: configure containerd
+#   command:
+#     cmd: containerd config default | tee /etc/containerd/config.toml
+#     creates: /etc/containerd/config.toml
+#   notify: restart containerd
+
 - name: configure containerd
-  command:
-    cmd: containerd config default > /etc/containerd/config.toml
-    creates: /etc/containerd/config.toml
+  shell: |
+    containerd config default > /etc/containerd/config.toml
   notify: restart containerd
 
 - name: start containerd
