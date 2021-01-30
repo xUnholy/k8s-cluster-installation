@@ -28,7 +28,7 @@ cri_plugin: containerd
 ####
 # Role: Storage
 ####
-openebs_enabled: true
+openebs_enabled: false
 
 ####
 # Role: docker_cache
